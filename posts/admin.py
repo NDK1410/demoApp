@@ -10,4 +10,8 @@ class PostAdmin(admin.ModelAdmin):
         ('Date information', {'fields': ['pub_date']}),
     ]
 
+	list_display = ('title_text', 'content_text', 'pub_date')
+	list_filter = ('pub_date',)
+	search_fields = [('title_text', 'content_text')]
+
 admin.site.register(Post, PostAdmin)

@@ -2,7 +2,8 @@
     <ul>
     {% for post in latest_post_list %}
         <li>
-        	<a href="/polls/{{ post.id }}/">{{ post.title_text }}</a>
+<!--         	<a href="/posts/{{ post.id }}/">{{ post.title_text }}</a> -->
+        	<a href="{% url 'posts:show' post.id %}">{{ post.title_text }}</a>
         	<p>{{ post.content_text }}</p>
         </li>
     {% endfor %}

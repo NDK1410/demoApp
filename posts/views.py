@@ -1,12 +1,18 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
+from django.views import generic
+
 from .models import Post
 
+class Index(generic.ListView):
+    template_name = 'posts/index.html'
+    context_object_name = 'latest_post_list'
 
-def index(request):
-	latest_post_list = Post.objects.order_by('-pub_date')[:4]
-	context = {'latest_post_list': latest_post_list}
-	return render(request, 'posts/index.html', context)
+    def get_queryset(self):
+        return Post.objects.order_by('-pub_date')[:6]
 
-def show(request, post_id):
-	post = get_object_or_404(Post, pk=post_id)
-	return render(request, 'posts/show.html', {'post': post})
+
+class Show(generic.DetailView):
+    model = Post
+    template_name = 'posts/show.html'

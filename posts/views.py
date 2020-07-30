@@ -16,7 +16,6 @@ class Index(generic.ListView):
     def get_queryset(self):
         return Post.objects.order_by('-pub_date')[:6]
 
-
 class Show(generic.DetailView):
     model = Post
     template_name = 'posts/show.html'

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% load cache %}
+{% cache 600 content %}
 {% block content %}
     {% for post in latest_post_list %}
 		<!--<a href="/posts/{{ post.id }}/">{{ post.title_text }}</a> -->
@@ -7,4 +8,4 @@
     	<p>{{ post.content_text }}</p>
     {% endfor %}
 {% endblock %}
-    
+{% endcache %}

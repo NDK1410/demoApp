@@ -1,17 +1,10 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'posts/style.scss' %}">
-
-{% if latest_post_list %}
-    <ul>
+{% block content %}
     {% for post in latest_post_list %}
-        <li>
-<!--         	<a href="/posts/{{ post.id }}/">{{ post.title_text }}</a> -->
-        	<a href="{% url 'posts:show' post.id %}">{{ post.title_text }}</a>
-        	<p>{{ post.content_text }}</p>
-        </li>
+		<!--<a href="/posts/{{ post.id }}/">{{ post.title_text }}</a> -->
+    	<a href="{% url 'posts:show' post.id %}"><h3>{{ post.title_text }}</h3></a>
+    	<p>{{ post.content_text }}</p>
     {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% endblock %}
+    

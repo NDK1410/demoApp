@@ -1,2 +1,6 @@
-<h1>{{ post.title_text }}</h1>
-<p>{{ post.content_text }}</p>
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>{{ post.title_text }}</h1>
+	<p>{{ post.content_text }}</p>
+{% endblock %}

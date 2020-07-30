@@ -1,9 +1,13 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
+from django.template.response import TemplateResponse
 
 from .models import Post
+
+def homepage(request):
+    return redirect('/posts/')
 
 class Index(generic.ListView):
     template_name = 'posts/index.html'

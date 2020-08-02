@@ -20,6 +20,7 @@ from posts.views import homepage
 
 urlpatterns = [
     url(r'^$', homepage),
+    url(r"^", include("users.urls")),
     path('posts/', include('posts.urls')),
     path('admin/', admin.site.urls),
     path('uploader/', include('uploader.urls')),

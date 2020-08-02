@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = "welcome"
+LOGIN_REDIRECT_URL = "/posts"
 
 LOGOUT_REDIRECT_URL = "welcome"
 

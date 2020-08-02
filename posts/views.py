@@ -7,7 +7,7 @@ from django.template.response import TemplateResponse
 from .models import Post
 
 def homepage(request):
-    return redirect('http://localhost:8000/welcome')
+    return redirect('/welcome')
 
 class Index(generic.ListView):
     template_name = 'posts/index.html'

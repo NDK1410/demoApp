@@ -5,17 +5,52 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{% block title %}Django Demo{% endblock %}</title>
+	<style>
+	    label, input {
+	        display: block;
+	    }
+	    span.helptext {
+	        display: none;
+	    }
+	    body {
+	    	font-family:Verdana;
+	    	color:#aaaaaa;
+	    }
+	    .headerTitle {
+	    	background-color:#e5e5e5;
+	    	padding:15px;text-align:center;
+	    }
+	    .content {
+	    	overflow:auto
+	    }
+	    .footer {
+	    	background-color:#e5e5e5;
+	    	text-align:center;
+	    	padding:10px;
+	    	margin-top:7px;
+	    }
+	    .log {
+	    	float: right;
+	    	position: relative;
+    		bottom: 9px;
+	    }
+</style>
 </head>
 
-<body style="font-family:Verdana;color:#aaaaaa;">
+<body">
 	<div class="container">
 		{% block header %}
-		<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
-		  <h1>Django Demo</h1>
+		<div class="headerTitle">
+		    <h1>Django Demo</h1>
+		    {% if user.is_authenticated %}
+		        <a class="log" href="{% url 'logout' %}">Logout</a>
+		    {% else %}
+		        <p class="log">Please <a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register</a></p>
+		    {% endif %}
 		</div>
 		{% endblock %}
 
-		<div style="overflow:auto">
+		<div class="content">
 		  <div class="col-md-2">
 		  </div>
 
@@ -29,7 +64,7 @@
 		</div>
 
 		{% block footer %}
-		<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright VietIS</div>
+		<div class="footer">© copyright VietIS</div>
 		{% endblock %}
 	</div>
 </body>

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "users",
     'posts.apps.PostsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -112,6 +113,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = "welcome"
+
+LOGOUT_REDIRECT_URL = "welcome"
+
+EMAIL_HOST = "localhost"
+
+EMAIL_PORT = 1025
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/

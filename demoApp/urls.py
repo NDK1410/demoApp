@@ -22,6 +22,5 @@ urlpatterns = [
     url(r'^$', homepage),
     path('posts/', include('posts.urls')),
     path('admin/', admin.site.urls),
-    path('user-login/', include('user_login.urls')),
     path('uploader/', include('uploader.urls')),
 ]
